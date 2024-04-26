@@ -20,6 +20,8 @@ in
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
   ];
+  nix.extraOptions = '' experimental-features = nix-command flakes '';
+  hardware.opengl.enable = true;
   services.xserver = if isLinux then {
     enable = true;
     displayManager.sddm.enable = true ;

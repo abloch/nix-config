@@ -13,7 +13,7 @@ in
 
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
-    bash git kitty tmux tmate pet gum fzf vim silver-searcher bat less curl wget axel dua liquidprompt obsidian dropbox rambox github-cli
+    bash git kitty tmux tmate pet gum fzf vim silver-searcher bat less curl wget axel dua liquidprompt obsidian dropbox rambox github-cli stow
   ] ++ lib.optionals isLinux [ 
     google-chrome waybar mako libnotify rofi-wayland tofi
   ] ++ lib.optionals isDarwin [
