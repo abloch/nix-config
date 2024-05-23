@@ -12,7 +12,11 @@ in
     listenAddresses = [ {addr = "0.0.0.0"; port = 22;}];
     startWhenNeeded = true;
   };
-  services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    authKeyFile = "/etc/tailscaleAuth";
+  };
+  
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
@@ -22,9 +26,9 @@ in
   ];
   nix.extraOptions = '' experimental-features = nix-command flakes '';
   hardware.opengl.enable = true;
+  services.displayManager.sddm.enable = if isLinux then true else null;
   services.xserver = if isLinux then {
     enable = true;
-    displayManager.sddm.enable = true ;
     windowManager.hypr.enable = true;
   } else {} ;
 }
